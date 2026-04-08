@@ -1,19 +1,26 @@
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Cities=({suggestions})=>{
     let[cityArr,SetCity]=useState([]);
+    let[ans,setAns]=useState("");
+    //useEffect(()=>{},[])
+    useEffect(()=>{
+    
+    },[setAns])
+
     function findCity(e){
 
         let val=e.target.value;
+        setAns(val)
         if(val=="")
         {
             SetCity([])
             return;
         }
      let ans=suggestions.filter((ct,ind)=>
-             ct.toLowerCase().includes(val.toLowerCase())
+             ct.includes(val)
     )
     SetCity(ans);
 
@@ -23,11 +30,14 @@ const Cities=({suggestions})=>{
         <div>
        <input type="text" 
        placeholder="Enter the City name"
-       onChange={findCity}/>
+       onChange={findCity}
+       value={ans}
+    
+       />
             <ul>
 {  cityArr &&  cityArr.map((urban,index)=>
                     
-            <li key={index}>{urban}</li>
+            <li key={index} onClick={()=>setAns(urban)}>{urban}</li>
                     )
 
  }
