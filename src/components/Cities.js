@@ -13,7 +13,7 @@ const Cities=({suggestions})=>{
             return;
         }
      let ans=suggestions.filter((ct,ind)=>
-             ct.includes(val)
+             ct.toLowerCase().includes(val.toLowerCase())
     )
     SetCity(ans);
 
