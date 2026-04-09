@@ -35,7 +35,7 @@ const Cities=({suggestions})=>{
     
        />
             <ul>
-{    cityArr.map((urban,index)=>
+{           cityArr.map((urban,index)=>
                     
             <li key={index} onClick={()=>setAns(urban)}>{urban}</li>
                     )
